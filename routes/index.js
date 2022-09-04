@@ -51,6 +51,15 @@ router.post('/new', async function(req, res) {
   }
 })
 
+/* GET new page */
+router.get('/new', async function (req, res, next){
+  try {
+    res.render('new', {title: 'Cadastro de cliente', doc: {}, action: "/new" });
+  } catch (ex) {
+    res.redirect('/erro=${ex}');
+  }
+})
+
 const db = require('../db');
 /* GET home page. */
 router.get('/', async function(req, res) {
